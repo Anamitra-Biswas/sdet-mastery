@@ -12,5 +12,11 @@ public class Main {
         pageActions.navigateTo("https://saucedemo.com");
         pageActions.isPageLoaded();
 
+        TestDataManager t = new TestDataManager();
+        t.printAllUsers();
+        t.printAll();
+        System.out.println(t.getConfigValue("meow"));
+        t.printSet();
     }
 }
+
