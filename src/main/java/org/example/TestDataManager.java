@@ -25,14 +25,19 @@ public class TestDataManager {
         browserSet.add("firefox");
     }
 
-    public void printAllUsers() {
+    /*public void printAllUsers() {
         for (int i = 0; i < testUsers.size(); i++) {
             if (!testUsers.get(i).contains("invalid@test.com")) {
                 System.out.println("[" + i + "] " + testUsers.get(i));
             }
 
         }
+    }*/
+
+    public  void printAllUsers(){
+        testUsers.stream().filter(u->!u.contains("invalid@test.com")).map(String::toUpperCase).forEach(System.out::println);
     }
+
     public void printAll(){
         for(Map.Entry<String,String> entry:testConfig.entrySet()){
             System.out.println("[Config]" +" "+entry.getKey()+" : "+entry.getValue());
