@@ -1,5 +1,6 @@
 package org.example;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class TestDataManager {
 
@@ -24,17 +25,7 @@ public class TestDataManager {
         browserSet.add("chrome");
         browserSet.add("firefox");
     }
-
-    /*public void printAllUsers() {
-        for (int i = 0; i < testUsers.size(); i++) {
-            if (!testUsers.get(i).contains("invalid@test.com")) {
-                System.out.println("[" + i + "] " + testUsers.get(i));
-            }
-
-        }
-    }*/
-
-    public  void printAllUsers(){
+    public  void printValidUsersUpperCase(){
         testUsers.stream().filter(u->!u.contains("invalid@test.com")).map(String::toUpperCase).forEach(System.out::println);
     }
 
@@ -55,6 +46,11 @@ public class TestDataManager {
     }
     public String getConfigValue(String key){
        return testConfig.getOrDefault(key,"Key Not Found");
+
+    }
+
+    public List<String> getValidUserStreams(){
+        return testUsers.stream().filter(u -> !u.contains("invalid@test.com")).collect(Collectors.toList());
 
     }
 }
