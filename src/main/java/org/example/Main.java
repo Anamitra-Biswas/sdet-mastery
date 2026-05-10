@@ -21,6 +21,7 @@ public class Main {
         t.printAll();
         System.out.println(t.getConfigValue("meow"));
         t.printSet();
+
     }
 }
 
