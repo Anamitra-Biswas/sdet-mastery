@@ -28,7 +28,6 @@ public class LoginTest {
         InventoryPage inventoryPage=new InventoryPage(driver);
         loginPage.navigateTo();
         loginPage.Login("Standard_user ","Secret sauce");
-
         assert inventoryPage.isLoaded();
         System.out.println("Current url "+inventoryPage.getPageUrl());
     }
