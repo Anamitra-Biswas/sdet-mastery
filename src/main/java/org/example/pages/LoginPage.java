@@ -28,7 +28,7 @@ public class LoginPage {
     public void clickLogin(){
         driver.findElement(loginButton).click();
     }
-    public void Login(String username,String password){
+    public void login(String username,String password){
         enterUserName(username);
         enterPassword(password);
         clickLogin();

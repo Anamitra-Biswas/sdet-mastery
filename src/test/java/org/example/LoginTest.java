@@ -1,15 +1,14 @@
 package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import net.bytebuddy.build.Plugin;
 import org.example.pages.InventoryPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.example.pages.LoginPage;
-import org.example.pages.InventoryPage;
 
 public class LoginTest {
 
@@ -22,17 +21,17 @@ public class LoginTest {
         driver.manage().window().maximize();
     }
 
-    @Test
+    @Test(priority = 2)
     public void testSuccessfulTest(){
        LoginPage loginPage=new LoginPage(driver);
         InventoryPage inventoryPage=new InventoryPage(driver);
         loginPage.navigateTo();
-        loginPage.Login("standard_user ","secret sauce");
+        loginPage.login("standard_user","secret_sauce");
         assert inventoryPage.isLoaded();
         System.out.println("Current url "+inventoryPage.getPageUrl());
     }
 
-    @Test
+    @Test(priority = 1)
     public void testLoginPageTitle() {
         driver.get("https://www.saucedemo.com");
         String title = driver.getTitle();
