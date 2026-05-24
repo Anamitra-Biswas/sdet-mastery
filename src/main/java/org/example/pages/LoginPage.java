@@ -1,5 +1,6 @@
 package org.example.pages;
 
+import org.example.config.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -20,7 +21,7 @@ public class LoginPage {
     }
 
     public void navigateTo(){
-        driver.get("https://www.saucedemo.com/");
+        driver.get(ConfigReader.get("baseUrl"));
     }
     public void enterPassword(String password){
         driver.findElement(passwordField).sendKeys(password);
